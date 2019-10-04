@@ -1,0 +1,18 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="create-schema-01" author="aeisele">
+        <createTable tableName="ARTISTS">
+            <column name="ID" type="long">
+                <constraints primaryKey="true" primaryKeyName="PK_ARTISTS" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar2(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
