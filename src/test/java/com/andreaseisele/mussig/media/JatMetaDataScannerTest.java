@@ -18,7 +18,7 @@ public class JatMetaDataScannerTest {
     private static final String TEST_DISC_NO = "1";
     private static final String TEST_COMPOSER = "The Composer";
 
-    private static final int TEST_LENGTH = 52;
+    private static final int TEST_LENGTH = 53;
     private static final int TEST_SAMPLE_RATE = 44100;
 
     @Test
