@@ -17,15 +17,6 @@
 
     <changeSet id="create-schema-02" author="aeisele">
 
-        <createTable tableName="COMPOSERS">
-            <column name="ID" type="long">
-                <constraints primaryKey="true" primaryKeyName="PK_COMPOSERS" nullable="false"/>
-            </column>
-            <column name="NAME" type="varchar2(256)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
         <createTable tableName="ALBUMS">
             <column name="ID" type="long">
                 <constraints primaryKey="true" primaryKeyName="PK_ALBUMS" nullable="false"/>
@@ -53,11 +44,7 @@
                              referencedColumnNames="ID"
                              foreignKeyName="FK_SONG_ARTIST"/>
             </column>
-            <column name="COMPOSER_ID" type="long">
-                <constraints referencedTableName="COMPOSERS"
-                             referencedColumnNames="ID"
-                             foreignKeyName="FK_SONG_COMPOSER"/>
-            </column>
+            <column name="COMPOSER" type="varchar2(256)"/>
             <column name="COMMENT" type="varchar2(1024)"/>
             <column name="LENGTH_SECS" type="long"/>
             <column name="SAMPLE_RATE" type="long"/>
@@ -83,6 +70,17 @@
             <column name="TRACK_NO" type="varchar2(10)"/>
             <column name="DISC_NO" type="varchar2(10)"/>
         </createTable>
+    </changeSet>
+
+    <changeSet id="create-schema-03" author="aeisele">
+        <createSequence sequenceName="SEQ_ARTISTS"/>
+        <addDefaultValue tableName="ARTISTS" columnName="ID" defaultValue="SEQ_ARTISTS.nextval"/>
+
+        <createSequence sequenceName="SEQ_ALBUMS"/>
+        <addDefaultValue tableName="ALBUMS" columnName="ID" defaultValue="SEQ_ALBUMS.nextval"/>
+
+        <createSequence sequenceName="SEQ_SONGS"/>
+        <addDefaultValue tableName="SONGS" columnName="ID" defaultValue="SEQ_SONGS.nextval"/>
     </changeSet>
 
 </databaseChangeLog>
