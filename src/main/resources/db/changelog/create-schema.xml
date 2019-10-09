@@ -74,13 +74,13 @@
 
     <changeSet id="create-schema-03" author="aeisele">
         <createSequence sequenceName="SEQ_ARTISTS"/>
-        <addDefaultValue tableName="ARTISTS" columnName="ID" defaultValue="SEQ_ARTISTS.nextval"/>
+        <addDefaultValue tableName="ARTISTS" columnName="ID" defaultValueNumeric="SEQ_ARTISTS.nextval"/>
 
         <createSequence sequenceName="SEQ_ALBUMS"/>
-        <addDefaultValue tableName="ALBUMS" columnName="ID" defaultValue="SEQ_ALBUMS.nextval"/>
+        <addDefaultValue tableName="ALBUMS" columnName="ID" defaultValueNumeric="SEQ_ALBUMS.nextval"/>
 
         <createSequence sequenceName="SEQ_SONGS"/>
-        <addDefaultValue tableName="SONGS" columnName="ID" defaultValue="SEQ_SONGS.nextval"/>
+        <addDefaultValue tableName="SONGS" columnName="ID" defaultValueNumeric="SEQ_SONGS.nextval"/>
     </changeSet>
 
 </databaseChangeLog>
