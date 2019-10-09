@@ -64,17 +64,21 @@
         </createTable>
 
         <createTable tableName="ALBUM_TRACKS">
-            <column name="SONG_ID" type="long">
-                <constraints referencedTableName="SONGS"
-                             referencedColumnNames="ID"
-                             foreignKeyName="FK_AT_SONG"
-                             nullable="false"/>
-            </column>
             <column name="ALBUM_ID" type="long">
                 <constraints referencedTableName="ALBUMS"
                              referencedColumnNames="ID"
                              foreignKeyName="FK_AT_ALBUM"
-                             nullable="false"/>
+                             nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="PK_ALBUM_TRACKS"/>
+            </column>
+            <column name="SONG_ID" type="long">
+                <constraints referencedTableName="SONGS"
+                             referencedColumnNames="ID"
+                             foreignKeyName="FK_AT_SONG"
+                             nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="PK_ALBUM_TRACKS"/>
             </column>
             <column name="TRACK_NO" type="varchar2(10)"/>
             <column name="DISC_NO" type="varchar2(10)"/>

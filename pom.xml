@@ -16,6 +16,9 @@
 
     <properties>
         <java.version>11</java.version>
+        <jdbc.driver>org.h2.Driver</jdbc.driver>
+        <jdbc.url>jdbc:h2:file:./mussigdb;AUTO_SERVER=TRUE</jdbc.url>
+        <jdbc.user>sa</jdbc.user>
     </properties>
 
     <repositories>
@@ -94,10 +97,38 @@
             </plugin>
 
             <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>${liquibase.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.h2database</groupId>
+                        <artifactId>h2</artifactId>
+                        <version>${h2.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <changeLogFile>src/main/resources/db/changelog/changelog-master.xml</changeLogFile>
+                    <driver>${jdbc.driver}</driver>
+                    <url>${jdbc.url}</url>
+                    <username>${jdbc.user}</username>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
                 <executions>
                     <execution>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
@@ -112,9 +143,9 @@
                 </dependencies>
                 <configuration>
                     <jdbc>
-                        <driver>org.h2.Driver</driver>
-                        <url>jdbc:h2:file:./mussigdb;AUTO_SERVER=TRUE</url>
-                        <user>sa</user>
+                        <driver>${jdbc.driver}</driver>
+                        <url>${jdbc.url}</url>
+                        <user>${jdbc.user}</user>
                     </jdbc>
                     <generator>
                         <database>
