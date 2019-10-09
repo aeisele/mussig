@@ -29,7 +29,7 @@ public class JooqArtistRepository implements ArtistRepository {
 
     @Override
     public Optional<Artist> findById(Long id) {
-        return dsl.selectFrom(ARTISTS).where(ARTISTS.ID.eq(id)).fetchOptional().map(toArtist());
+        return fetchById(id).map(toArtist());
     }
 
     @Override
@@ -43,7 +43,19 @@ public class JooqArtistRepository implements ArtistRepository {
     @Transactional
     @Override
     public Artist saveOrUpdate(Artist entity) {
-        final ArtistsRecord record = dsl.newRecord(ARTISTS);
+        ArtistsRecord record;
+        if (entity.isNew()) {
+            record = dsl.newRecord(ARTISTS);
+        } else {
+            final Optional<ArtistsRecord> maybeRecord = fetchById(entity.getId());
+            if (maybeRecord.isEmpty()) {
+                throw new IllegalStateException("trying to update a non existent record? " + entity);
+            }
+
+            record = maybeRecord.get();
+        }
+
+
         record.setName(entity.getName());
 
         record.store();
@@ -55,6 +67,10 @@ public class JooqArtistRepository implements ArtistRepository {
     @Override
     public void delete(Long id) {
         dsl.deleteFrom(ARTISTS).where(ARTISTS.ID.eq(id)).execute();
+    }
+
+    private Optional<ArtistsRecord> fetchById(Long id) {
+        return dsl.selectFrom(ARTISTS).where(ARTISTS.ID.eq(id)).fetchOptional();
     }
 
     private Function<ArtistsRecord, Artist> toArtist() {
