@@ -120,7 +120,10 @@
                         <database>
                             <name>org.jooq.meta.h2.H2Database</name>
                             <includes>.*</includes>
-                            <excludes/>
+                            <excludes>
+                                  DATABASECHANGELOG
+                                | DATABASECHANGELOGLOCK
+                            </excludes>
                             <inputSchema>PUBLIC</inputSchema>
                         </database>
                         <target>
