@@ -61,6 +61,7 @@
             <groupId>org.bitbucket.ijabz</groupId>
             <artifactId>jaudiotagger</artifactId>
             <!-- TODO: update to 2.2.6 once available -->
+            <!--suppress MavenModelInspection -->
             <version>master-SNAPSHOT</version>
         </dependency>
 
