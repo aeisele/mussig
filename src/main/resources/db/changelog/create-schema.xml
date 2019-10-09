@@ -15,4 +15,70 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="create-schema-02" author="aeisele">
+
+        <createTable tableName="COMPOSERS">
+            <column name="ID" type="long">
+                <constraints primaryKey="true" primaryKeyName="PK_COMPOSERS" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar2(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="ALBUMS">
+            <column name="ID" type="long">
+                <constraints primaryKey="true" primaryKeyName="PK_ALBUMS" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar2(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="YEAR" type="varchar2(10)"/>
+            <column name="ARTIST_ID" type="long">
+                <constraints referencedTableName="ARTISTS"
+                             referencedColumnNames="ID"
+                             foreignKeyName="FK_ALBUM_ARTIST"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="SONGS">
+            <column name="ID" type="long">
+                <constraints primaryKey="true" primaryKeyName="PK_SONGS" nullable="false"/>
+            </column>
+            <column name="TITLE" type="varchar2(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ARTIST_ID" type="long">
+                <constraints referencedTableName="ARTISTS"
+                             referencedColumnNames="ID"
+                             foreignKeyName="FK_SONG_ARTIST"/>
+            </column>
+            <column name="COMPOSER_ID" type="long">
+                <constraints referencedTableName="COMPOSERS"
+                             referencedColumnNames="ID"
+                             foreignKeyName="FK_SONG_COMPOSER"/>
+            </column>
+            <column name="COMMENT" type="varchar2(1024)"/>
+            <column name="LENGTH_SECS" type="long"/>
+            <column name="SAMPLE_RATE" type="long"/>
+        </createTable>
+
+        <createTable tableName="ALBUM_TRACKS">
+            <column name="SONG_ID" type="long">
+                <constraints referencedTableName="SONGS"
+                             referencedColumnNames="ID"
+                             foreignKeyName="FK_AT_SONG"
+                             nullable="false"/>
+            </column>
+            <column name="ALBUM_ID" type="long">
+                <constraints referencedTableName="ALBUMS"
+                             referencedColumnNames="ID"
+                             foreignKeyName="FK_AT_ALBUM"
+                             nullable="false"/>
+            </column>
+            <column name="TRACK_NO" type="varchar2(10)"/>
+            <column name="DISC_NO" type="varchar2(10)"/>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
