@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>mussig-support</module>
         <module>mussig-server</module>
     </modules>
     <parent>
@@ -26,9 +25,16 @@
 
     <repositories>
         <repository>
-            <id>jaudiotagger-repository</id>
+            <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>

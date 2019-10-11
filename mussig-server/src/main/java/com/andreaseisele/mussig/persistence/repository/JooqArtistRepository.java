@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-import static com.andreaseisele.mussig.persistence.model.tables.Artists.ARTISTS;
+import static com.andreaseisele.mussig.persistence.model.tables.Artist.ARTISTS;
 import static java.util.stream.Collectors.toUnmodifiableList;
 
 @Transactional(readOnly = true)

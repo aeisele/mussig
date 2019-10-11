@@ -144,9 +144,9 @@
                         <version>${h2.version}</version>
                     </dependency>
                     <dependency>
-                        <groupId>com.andreaseisele.mussig</groupId>
-                        <artifactId>mussig-build</artifactId>
-                        <version>${project.version}</version>
+                        <groupId>com.github.aeisele</groupId>
+                        <artifactId>jooqdepluralizestrategy</artifactId>
+                        <version>1.0</version>
                     </dependency>
                 </dependencies>
                 <configuration>
@@ -157,7 +157,7 @@
                     </jdbc>
                     <generator>
                         <strategy>
-                            <name>com.andreaseisele.mussig.support.jooq.DepluralizeNamingStrategy</name>
+                            <name>com.andreaseisele.jooq.strategy.DepluralizeNamingStrategy</name>
                         </strategy>
                         <database>
                             <name>org.jooq.meta.h2.H2Database</name>
