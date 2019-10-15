@@ -72,4 +72,22 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="create-schema-03" author="aeisele">
+        <createTable tableName="COUNTRIES">
+            <column name="NAME" type="varchar2(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ALPHA_2" type="varchar2(2)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_COUNTRIES"/>
+            </column>
+            <column name="ALPHA_3" type="varchar2(3)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <loadData tableName="COUNTRIES"
+                  file="../data/iso-countries/all.csv"/>
+
+    </changeSet>
+
 </databaseChangeLog>
