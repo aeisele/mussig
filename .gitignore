@@ -32,3 +32,6 @@ build/
 
 ### h2 ###
 **/mussigdb*
+
+### Lombok ###
+**/lombok.config
