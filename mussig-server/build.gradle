@@ -31,8 +31,8 @@ dependencies {
 
     // update to proper 2.2.6 release once available
     implementation 'org.bitbucket.ijabz:jaudiotagger:master-SNAPSHOT'
-
     implementation 'com.google.jimfs:jimfs:1.1'
+    implementation 'org.modelmapper:modelmapper:2.3.5'
 
     implementation 'org.liquibase:liquibase-core'
     runtimeOnly 'com.h2database:h2'
@@ -92,3 +92,5 @@ jooq {
         }
     }
 }
+
+generateDomainJooqSchemaSource.dependsOn update
