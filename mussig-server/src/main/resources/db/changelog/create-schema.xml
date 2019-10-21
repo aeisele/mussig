@@ -101,6 +101,12 @@
             <column header="intermediate-region-code" type="SKIP"/>
         </loadData>
 
+        <addColumn tableName="ARTISTS">
+            <column name="COUNTRY_ID" type="varchar2(2)">
+                <constraints foreignKeyName="FK_ART_CTRY" referencedTableName="COUNTRIES" referencedColumnNames="ALPHA_2"/>
+            </column>
+        </addColumn>
+
     </changeSet>
 
 </databaseChangeLog>
