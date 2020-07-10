@@ -35,3 +35,6 @@ build/
 
 ### Lombok ###
 **/lombok.config
+
+### gradle ###
+.gradle

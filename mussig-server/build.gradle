@@ -3,13 +3,13 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
     id 'org.liquibase.gradle' version '2.0.1'
-    id "io.freefair.lombok" version "4.1.2"
+    id "io.freefair.lombok" version "5.1.0"
     id 'nu.studer.jooq' version '3.0.3'
 }
 
 group = 'com.andreaseisele.mussig'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '14'
 
 repositories {
     mavenCentral()
