@@ -1,0 +1,16 @@
+ext {
+
+    // gradle plugin versions
+    springBootVersion = '2.3.1.RELEASE'
+    springDependencyManagementVersion = '1.0.9.RELEASE'
+    liquibaseGradleVersion = '2.0.4'
+    lombokGradleVersion = '5.1.0'
+    jooqGradleVersion = '4.1'
+
+    // dependency versions
+    jimFsVersion = '1.1'
+    modelMapperVersion = '2.3.5'
+    liquibaseGroovyDslVersion = '2.1.2'
+    jooqDepluralizeVersion = '1.0'
+    googleTruthVersion = '1.0.1'
+}

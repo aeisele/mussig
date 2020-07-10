@@ -1,10 +1,10 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.0.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'org.springframework.boot' version "$springBootVersion"
+    id 'io.spring.dependency-management' version "$springDependencyManagementVersion"
     id 'java'
-    id 'org.liquibase.gradle' version '2.0.1'
-    id "io.freefair.lombok" version "5.1.0"
-    id 'nu.studer.jooq' version '3.0.3'
+    id 'org.liquibase.gradle' version "$liquibaseGradleVersion"
+    id "io.freefair.lombok" version "$lombokGradleVersion"
+    id 'nu.studer.jooq' version "$jooqGradleVersion"
 }
 
 group = 'com.andreaseisele.mussig'
@@ -31,23 +31,23 @@ dependencies {
 
     // update to proper 2.2.6 release once available
     implementation 'org.bitbucket.ijabz:jaudiotagger:master-SNAPSHOT'
-    implementation 'com.google.jimfs:jimfs:1.1'
-    implementation 'org.modelmapper:modelmapper:2.3.5'
+    implementation "com.google.jimfs:jimfs:$jimFsVersion"
+    implementation "org.modelmapper:modelmapper:$modelMapperVersion"
 
     implementation 'org.liquibase:liquibase-core'
     runtimeOnly 'com.h2database:h2'
     liquibaseRuntime 'org.liquibase:liquibase-core'
-    liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl:2.0.3'
+    liquibaseRuntime "org.liquibase:liquibase-groovy-dsl:$liquibaseGroovyDslVersion"
     liquibaseRuntime 'com.h2database:h2'
     liquibaseRuntime 'ch.qos.logback:logback-classic'
     jooqRuntime 'com.h2database:h2'
-    jooqRuntime 'com.github.aeisele:jooqdepluralizestrategy:1.0'
+    jooqRuntime "com.github.aeisele:jooqdepluralizestrategy:$jooqDepluralizeVersion"
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    testImplementation('com.google.truth:truth:1.0')
-    testImplementation('com.google.truth.extensions:truth-java8-extension:1.0')
+    testImplementation("com.google.truth:truth:$googleTruthVersion")
+    testImplementation("com.google.truth.extensions:truth-java8-extension:$googleTruthVersion")
 
 }
 
