@@ -35,6 +35,7 @@ dependencies {
     liquibaseRuntime "org.liquibase:liquibase-groovy-dsl:$liquibaseGroovyDslVersion"
     liquibaseRuntime 'com.h2database:h2'
     liquibaseRuntime 'ch.qos.logback:logback-classic'
+
     jooqRuntime 'com.h2database:h2'
     jooqRuntime "com.github.aeisele:jooqdepluralizestrategy:$jooqDepluralizeVersion"
 
@@ -61,6 +62,7 @@ liquibase {
 }
 
 jooq {
+    version = dependencyManagement.importedProperties['jooq.version']
     domain(sourceSets.main) {
         jdbc {
             driver = project.ext.jdbcDriver
