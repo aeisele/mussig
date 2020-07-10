@@ -11,11 +11,6 @@ group = 'com.andreaseisele.mussig'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '14'
 
-repositories {
-    mavenCentral()
-    maven { url 'https://jitpack.io' }
-}
-
 ext {
     jdbcDriver = 'org.h2.Driver'
     jdbcUrl = 'jdbc:h2:file:./mussigdb'
