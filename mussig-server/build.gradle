@@ -13,7 +13,7 @@ sourceCompatibility = '14'
 
 ext {
     jdbcDriver = 'org.h2.Driver'
-    jdbcUrl = 'jdbc:h2:file:./mussigdb'
+    jdbcUrl = "jdbc:h2:file:$projectDir/mussigdb"
     jdbcUser = 'sa'
 }
 
