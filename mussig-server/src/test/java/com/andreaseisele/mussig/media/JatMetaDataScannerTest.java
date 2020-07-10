@@ -1,6 +1,7 @@
 package com.andreaseisele.mussig.media;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.net.URISyntaxException;
 import java.nio.file.Path;
