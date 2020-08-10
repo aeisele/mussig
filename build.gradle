@@ -1,16 +1,23 @@
+plugins {
+    id 'com.github.ben-manes.versions' version '0.29.0' apply false
+}
+
 allprojects {
 
     repositories {
         mavenCentral()
+        jcenter()
         maven { url 'https://jitpack.io' }
     }
+
+    apply plugin: 'com.github.ben-manes.versions'
 
 }
 
 ext {
 
     // gradle plugin versions
-    springBootVersion = '2.3.1.RELEASE'
+    springBootVersion = '2.3.2.RELEASE'
     springDependencyManagementVersion = '1.0.9.RELEASE'
     liquibaseGradleVersion = '2.0.4'
     lombokGradleVersion = '5.1.0'
@@ -18,7 +25,7 @@ ext {
 
     // dependency versions
     jimFsVersion = '1.1'
-    modelMapperVersion = '2.3.5'
+    modelMapperVersion = '2.3.8'
     liquibaseGroovyDslVersion = '2.1.2'
     jooqDepluralizeVersion = '1.0'
     googleTruthVersion = '1.0.1'
