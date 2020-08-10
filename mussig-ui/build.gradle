@@ -1,0 +1,13 @@
+plugins {
+    id "org.siouan.frontend" version "$frontendVersion"
+}
+
+group = 'com.andreaseisele.mussig'
+version = '0.0.1-SNAPSHOT'
+
+frontend {
+    nodeVersion = '12.18.1'
+
+    assembleScript = 'run build'
+    checkScript = 'run test-ci'
+}

@@ -1,3 +1,5 @@
 rootProject.name = 'mussig-parent'
 
 include 'mussig-server'
+include 'mussig-ui'
+
